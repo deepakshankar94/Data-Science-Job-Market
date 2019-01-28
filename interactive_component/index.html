@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interactive component of EDAV</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div id="heading">Demographic data explorer</div>
+	<div id="subheading">Please <span id="click">click</span> on a country to view it's demographic data</div>
+
+		<div id="container"></div>
+
+
+
+
+	<div id="bar_charts">
+		<div class="bar-box-container left">
+			<div class="bar-box">
+				<div class="bar-heading">
+					Sex Ration of <span class="country-name"></span>
+				</div>
+				<div id="bar_gender" class="bar-chart">
+					Please select a country
+				</div>
+			</div>
+		</div>
+		<div class="bar-box-container right">
+			<div class="bar-box">
+				<div class="bar-heading">
+					Top databases of <span class="country-name"></span>
+				</div>
+			
+				<div id="bar_database" class="bar-chart">
+					Please select a country
+				</div>
+			</div>
+		</div>
+				<div class="bar-box-container left">
+			<div class="bar-box">
+				<div class="bar-heading">
+					Top programming languages of <span class="country-name"></span>
+				</div>
+			
+				<div id="bar_language" class="bar-chart">
+					Please select a country
+				</div>
+			</div>
+		</div>
+				<div class="bar-box-container right">
+			<div class="bar-box">
+				<div class="bar-heading">
+					Top platforms of <span class="country-name"></span>
+				</div>
+			
+				<div id="bar_platform" class="bar-chart">
+					Please select a country
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	<script src="datamaps.world.min.js"></script>
+	<script type="text/javascript">
+		var map = new Datamap({element: document.getElementById('container'),
+		    	fills: {
+		            defaultFill: 'rgb(46,88,148)' // Any hex, color name or rgb/rgba value
+		        },
+		    geographyConfig: {
+		        hideAntarctica: true,
+		        borderWidth: 1,
+		        borderOpacity: 1,
+		        borderColor: '#FDFDFD',
+		        popupTemplate: function(geography, data) { //this function should just return a string
+		          return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
+		        },
+		        popupOnHover: true, //disable the popup while hovering
+		        highlightOnHover: true,
+		        highlightFillColor: '#87FF2A',
+		        highlightBorderColor: 'rgba(230, 15, 140, 0.2)',
+		        highlightBorderWidth: 2,
+		        highlightBorderOpacity: 1
+			},
+			done: function(datamap) {
+            datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+                setup_barcharts(geography.properties.name);
+            });
+        }
+    });
+	</script>
+
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+
+
+</body>
+</html>
+
