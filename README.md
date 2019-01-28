@@ -4,7 +4,7 @@ Exploratory data analysis and visualizations of current data science job market 
 
 Final project for the EDAV class. (Columbia University, Fall 2018).
 
-Author: Yu Han Huang (yh3093), Deepak Ravishankar (dr2998), Jong Hyuk Lee (jl5261)
+Author: Deepak Ravishankar (dr2998), Yu Han Huang (yh3093), Jong Hyuk Lee (jl5261)
 
 ## Objective
 As students current majoring in Data Science at Columbia, we are interested in the swelling demand for data scientists coupled with the evident skills gap. We want to understand the demographic of the current data science job market: who is in the market, what skills are needed in the market, and what prospects can we expect from the market. For each variable, we would evaluate it from both demand and supply, that is, we would not only evaluate the demanded requirements from job listings, but how people in the industry are meeting the requirements.
